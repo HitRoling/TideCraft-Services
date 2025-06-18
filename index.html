@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TideCraft Services - Yacht Management</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    header .status {
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #005ce6;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .hero h1 {
+      color: #003366;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #005ce6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #003cb3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 0.85rem;
+      background: #eaeaea;
+    }
+
+    @media (max-width: 600px) {
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>TideCraft Services</h2>
+    <div class="status">Status: <span id="status">Not signed in</span></div>
+  </header>
+
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="pay.html">Subscribe</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Yacht Maintenance Made Easy</h1>
+      <p>
+        TideCraft is a professional yacht service tracker. Monitor engine hours, plan maintenance, and keep full history — all in one app. This system runs securely on our own network and activates once payment is confirmed.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="signup.html">Get Started</a>
+        <a class="btn" href="pay.html">Subscribe</a>
+        <a class="btn" id="downloadApp" href="#" style="display: none;">Download App</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 TideCraft Services. All rights reserved.
+  </footer>
+
+  <script>
+    // Simulated login status check (for GitHub only)
+    // If you want, this can check localStorage or remote status in future
+    const isLoggedIn = false; // we keep this false for now
+    if (isLoggedIn) {
+      document.getElementById("status").innerText = "Signed in";
+      document.getElementById("downloadApp").style.display = "inline-block";
+      document.getElementById("downloadApp").href = "http://your-public-ip:8080/download/tidecraft-app.zip";
+    }
+  </script>
+
+</body>
+</html>
