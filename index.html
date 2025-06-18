@@ -21,11 +21,16 @@ body {
   background: var(--light-bg);
   color: #222;
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+section {
+  transition: background 1s ease-in-out;
 }
 
 header.hero {
@@ -63,11 +68,12 @@ h1 {
   border-radius: 8px;
   margin: 0.5rem;
   display: inline-block;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
   background: var(--dark);
+  transform: scale(1.05);
 }
 
 .section {
@@ -102,36 +108,10 @@ h1 {
   border-radius: 12px;
 }
 
-footer {
-  background: #eaf1f9;
-  padding: 3rem 2rem;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-footer a {
+.counter {
+  font-size: 2.5rem;
+  font-weight: bold;
   color: var(--main-color);
-  margin: 0 1rem;
-}
-
-.cta-banner {
-  background: var(--main-color);
-  color: white;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.cta-banner h2 {
-  margin-bottom: 1rem;
-}
-
-.stats {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 3rem 1rem;
-  background: white;
-  text-align: center;
 }
 
 .stat-box {
@@ -144,23 +124,30 @@ footer a {
   color: var(--main-color);
 }
 
-.contact-section {
-  background: #fff;
-  padding: 4rem 2rem;
-}
-
-.contact-section form {
-  display: grid;
-  gap: 1rem;
-  max-width: 600px;
+.pie-chart {
+  width: 150px;
+  height: 150px;
   margin: auto;
+  border-radius: 50%;
+  background: conic-gradient(#005ce6 75%, #e0e0e0 75%);
+  animation: spinPie 2s ease-out;
 }
 
-input, textarea {
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+@keyframes spinPie {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+footer {
+  background: #eaf1f9;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--main-color);
+  margin: 0 1rem;
 }
 
   </style>
@@ -169,97 +156,108 @@ input, textarea {
   <header class="hero">
     <div class="glass-box">
       <h1><i class="fas fa-ship"></i> TideCraft Services</h1>
-      <p>Complete Yacht Maintenance System — Engine tracking, task history, notifications.</p>
+      <p>Full-featured Yacht Maintenance System</p>
       <div>
         <a href="#features" class="btn">Explore Features</a>
         <a href="pay.html" class="btn">Subscribe</a>
-        <a href="https://wa.me/message/DKKYC7CF3JZNN1" class="btn" style="background:#25D366;">Chat on WhatsApp</a>
+        <a href="https://wa.me/message/DKKYC7CF3JZNN1" class="btn" style="background:#25D366;">WhatsApp Us</a>
       </div>
     </div>
   </header>  <section class="section" id="features">
-    <h2>Powerful Features</h2>
+    <h2>Features</h2>
     <div class="features">
+      <div class="feature-box">
+        <i class="fas fa-tools"></i>
+        <h3>Maintenance Scheduling</h3>
+        <p>Get automatic reminders and service tracking.</p>
+      </div>
       <div class="feature-box">
         <i class="fas fa-clock"></i>
-        <h3>Engine Hour Tracking</h3>
-        <p>Log your hours with precision and never miss service intervals again.</p>
+        <h3>Engine Hours</h3>
+        <p>Track usage hours precisely with historical charts.</p>
       </div>
       <div class="feature-box">
-        <i class="fas fa-bell"></i>
-        <h3>Maintenance Alerts</h3>
-        <p>Custom reminders help you plan tasks before they become a problem.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-database"></i>
-        <h3>History Logs</h3>
-        <p>Full data logging for audits and long-term tracking of tasks and hours.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-user-lock"></i>
-        <h3>User Access Control</h3>
-        <p>Secure login system tied to your local or cloud-hosted database.</p>
+        <i class="fas fa-shield-alt"></i>
+        <h3>Secure Logins</h3>
+        <p>User authentication powered by local data.</p>
       </div>
     </div>
-  </section>  <section class="section">
-    <h2>Incredible Visuals</h2>
+  </section>  <section class="section" style="background:#fff;">
+    <h2>Visual Insights</h2>
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1594007652174-84b0ed1072fc?auto=format&fit=crop&w=1000&q=80" alt="Yacht">
-      <img src="https://images.unsplash.com/photo-1532339142462-f30c3c9a4080?auto=format&fit=crop&w=1000&q=80" alt="Ocean">
-      <img src="https://images.unsplash.com/photo-1583430568700-aebdf0bc1d2e?auto=format&fit=crop&w=1000&q=80" alt="Maintenance">
+      <img src="https://images.pexels.com/photos/1739464/pexels-photo-1739464.jpeg" alt="yacht1">
+      <img src="https://images.pexels.com/photos/296236/pexels-photo-296236.jpeg" alt="yacht2">
+      <img src="https://images.pexels.com/photos/3583193/pexels-photo-3583193.jpeg" alt="control dashboard">
+    </div>
+  </section>  <section class="section" id="statistics">
+    <h2>Our Impact</h2>
+    <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+      <div class="stat-box">
+        <div class="counter" data-target="1200">0</div>
+        <p>Hours Tracked</p>
+      </div>
+      <div class="stat-box">
+        <div class="counter" data-target="350">0</div>
+        <p>Service Logs</p>
+      </div>
+      <div class="stat-box">
+        <div class="counter" data-target="99">0</div>
+        <p>% Uptime</p>
+      </div>
+      <div class="stat-box">
+        <div class="pie-chart"></div>
+        <p>Customer Satisfaction</p>
+      </div>
     </div>
   </section>  <section class="section">
-    <h2>Testimonials</h2>
+    <h2>What Our Users Say</h2>
     <div class="features">
       <div class="testimonial-box">
-        <p><strong>Michael J., Cape Town</strong><br>“TideCraft helps me stay on top of my boat schedule with zero stress.”</p>
+        <p><strong>John, CT</strong><br>“Love how smooth and reliable it is.”</p>
       </div>
       <div class="testimonial-box">
-        <p><strong>Lisa P., Durban</strong><br>“No more guessing when my next checkup is. Love the reminders!”</p>
-      </div>
-      <div class="testimonial-box">
-        <p><strong>Andre K., PE</strong><br>“I use the app daily and it’s become part of my routine!”</p>
+        <p><strong>Lisa, DBN</strong><br>“No more paper logs! This app is everything.”</p>
       </div>
     </div>
-  </section>  <section class="cta-banner">
-    <h2>Join TideCraft Today</h2>
-    <p>Create an account, subscribe, and unlock the full dashboard instantly.</p>
-    <a href="signup.html" class="btn">Create Account</a>
-    <a href="pay.html" class="btn">Subscribe Now</a>
-  </section>  <section class="section stats">
-    <div class="stat-box">
-      <h3>1000+</h3>
-      <p>Hours Tracked</p>
-    </div>
-    <div class="stat-box">
-      <h3>500+</h3>
-      <p>Maintenance Logs</p>
-    </div>
-    <div class="stat-box">
-      <h3>99.9%</h3>
-      <p>Uptime</p>
-    </div>
-  </section>  <section class="contact-section">
-    <h2>Contact Us</h2>
-    <form action="#" method="post">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message"></textarea>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
   </section>  <footer>
-    <p>Contact: ewaldpret6@gmail.com | +27 82 798 3974 | Based in South Africa</p>
+    <p>Contact: <a href="mailto:ewaldpret6@gmail.com">ewaldpret6@gmail.com</a> | +27 82 798 3974 | South Africa</p>
     <p>
-      <a href="terms.html">Terms</a> |
-      <a href="privacy.html">Privacy</a> |
-      <a href="refund.html">Refund</a>
+      <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund.html">Refund</a>
     </p>
     <p>
-      Follow us:
       <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
       <a href="https://wa.me/message/DKKYC7CF3JZNN1"><i class="fab fa-whatsapp"></i></a>
     </p>
     <p>&copy; 2025 TideCraft Services</p>
-  </footer>
-</body>
+  </footer>  <script>
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100;
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          const updateCount = () => {
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(updateCount, 20);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
+  </script></body>
 </html>
