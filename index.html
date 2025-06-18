@@ -2,108 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TideCraft Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --main-color: #005ce6;
+      --dark: #002b5e;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
-      background: #f0f4f8;
+      background: #f5f9fc;
       color: #222;
     }
 
-    header {
-      background: #003366;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-
     .hero {
-      background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
-      background-size: cover;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin: 0 0 1rem;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    .cta-buttons {
-      margin-top: 2rem;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1594007652174-84b0ed1072fc?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    p.description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .status-bar {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .btn-group {
+      display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
     }
 
     .btn {
-      background: #005ce6;
+      background: var(--main-color);
       color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
+      padding: 0.9rem 1.8rem;
       font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
     .btn:hover {
-      background: #003cb3;
-    }
-
-    .status-bar {
-      text-align: center;
-      padding: 0.5rem;
-      background: #e0ecf9;
-      font-size: 0.9rem;
+      background: var(--dark);
     }
 
     .section {
       padding: 3rem 2rem;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
       text-align: center;
     }
 
     .section h2 {
-      color: #003366;
+      font-size: 2rem;
       margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #333;
     }
 
     footer {
-      background: #eaeaea;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      background: #e9f1fb;
     }
 
     footer a {
-      color: #005ce6;
-      margin: 0 0.5rem;
+      margin: 0 1rem;
       text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+      color: var(--main-color);
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
+      h1 {
+        font-size: 2rem;
       }
-      .hero p {
+      p.description {
         font-size: 1rem;
       }
     }
@@ -111,33 +126,28 @@
 </head>
 <body>
 
-  <header>
-    <h1>TideCraft Services</h1>
-  </header>
-
-  <div class="status-bar">
-    Status: <span id="status">Not signed in</span>
+  <div class="hero">
+    <div class="glass-box">
+      <h1>TideCraft Services</h1>
+      <div class="status-bar">Status: <span id="status">Not signed in</span></div>
+      <p class="description">
+        The smart way to manage yacht maintenance. Monitor engine hours, receive service reminders, and keep full records — accessible anywhere.
+      </p>
+      <div class="btn-group">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn">Sign Up</a>
+        <a href="pay.html" class="btn">Subscribe</a>
+        <a href="#" id="downloadBtn" class="btn" style="display: none;">Download App</a>
+      </div>
+    </div>
   </div>
 
-  <section class="hero">
-    <h1>Smart Yacht Maintenance</h1>
-    <p>Track engine hours. Plan maintenance. Keep full service history. Access it all in one secure system.</p>
-    <div class="cta-buttons">
-      <a class="btn" href="login.html">Login</a>
-      <a class="btn" href="signup.html">Sign Up</a>
-      <a class="btn" href="pay.html">Subscribe</a>
-      <a class="btn" href="#" id="downloadBtn" style="display: none;">Download App</a>
-    </div>
-  </section>
-
-  <section class="section">
+  <div class="section">
     <h2>How It Works</h2>
     <p>
-      After signing up and subscribing, you'll receive full access to the TideCraft system hosted on our secure server.
-      Manage all your yacht maintenance with full task history, alerts, and hour-based reminders.
-      The system is web-based and app-accessible, and runs on a real-time backend connected to your account.
+      After creating your account and subscribing, your TideCraft profile is activated. You'll receive access to your private dashboard hosted securely, where you can manage yacht hours, schedule tasks, and view maintenance history.
     </p>
-  </section>
+  </div>
 
   <footer>
     &copy; 2025 TideCraft Services —
@@ -147,12 +157,13 @@
   </footer>
 
   <script>
-    // Toggle this based on login/session logic in future
-    const isSignedIn = false;
-    if (isSignedIn) {
+    // Toggle this manually or via a backend session later
+    const isLoggedIn = false;
+    if (isLoggedIn) {
       document.getElementById("status").innerText = "Signed in";
-      document.getElementById("downloadBtn").style.display = "inline-block";
-      document.getElementById("downloadBtn").href = "http://your-ip-or-domain/download/tidecraft-app.zip";
+      const download = document.getElementById("downloadBtn");
+      download.style.display = "inline-block";
+      download.href = "http://your-public-ip/download/tidecraft-app.zip"; // <-- Replace this
     }
   </script>
 
