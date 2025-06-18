@@ -1,226 +1,265 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TideCraft Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
       --main-color: #005ce6;
       --dark: #002b5e;
       --light-bg: #f5f9fc;
-    }
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--light-bg);
+  color: #222;
+  scroll-behavior: smooth;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light-bg);
-      color: #222;
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-                  url('https://images.unsplash.com/photo-1508615039623-a25605d2b022?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 2rem;
-      animation: fadeIn 1s ease-in;
-    }
+header.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url('https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-    .glass-box {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-      padding: 2.5rem;
-      border-radius: 16px;
-      max-width: 850px;
-      margin: auto;
-      box-shadow: 0 0 30px rgba(0,0,0,0.3);
-    }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+.btn {
+  background: var(--main-color);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin: 0.5rem;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
 
-    p.description {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #e0e0e0;
-    }
+.btn:hover {
+  background: var(--dark);
+}
 
-    .status-bar {
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      color: #ccc;
-    }
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
 
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.features, .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-    .btn {
-      background: var(--main-color);
-      color: white;
-      padding: 0.9rem 1.8rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
+.feature-box, .testimonial-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
 
-    .btn:hover {
-      background: var(--dark);
-      transform: scale(1.05);
-    }
+.feature-box i {
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
 
-    .section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+}
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--dark);
-    }
+footer {
+  background: #eaf1f9;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
 
-    .section p {
-      font-size: 1.1rem;
-      color: #333;
-      line-height: 1.6;
-    }
+footer a {
+  color: var(--main-color);
+  margin: 0 1rem;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background: #eaf1f9;
-      color: #444;
-    }
+.cta-banner {
+  background: var(--main-color);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
 
-    footer a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: var(--main-color);
-    }
+.cta-banner h2 {
+  margin-bottom: 1rem;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  background: white;
+  text-align: center;
+}
 
-    .contact {
-      margin-top: 2rem;
-      font-size: 1rem;
-    }
+.stat-box {
+  flex: 1 1 200px;
+  padding: 1rem;
+}
 
-    .contact i {
-      margin-right: 8px;
-      color: var(--main-color);
-    }
+.stat-box h3 {
+  font-size: 2rem;
+  color: var(--main-color);
+}
 
-    .whatsapp-btn {
-      background-color: #25D366;
-      color: white;
-      font-size: 1rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      display: inline-block;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
+.contact-section {
+  background: #fff;
+  padding: 4rem 2rem;
+}
 
-    .whatsapp-btn:hover {
-      background-color: #1ebc5c;
-    }
+.contact-section form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      p.description { font-size: 1rem; }
-    }
+input, textarea {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
 
-    @media (min-width: 3840px) {
-      h1 { font-size: 4.5rem; }
-      p.description { font-size: 1.8rem; }
-    }
   </style>
 </head>
 <body>
-
-  <div class="hero">
+  <header class="hero">
     <div class="glass-box">
       <h1><i class="fas fa-ship"></i> TideCraft Services</h1>
-      <div class="status-bar">Status: <span id="status">Not signed in</span></div>
-      <p class="description">
-        Manage yacht maintenance effortlessly. View engine hours, receive service reminders, and track all tasks. Powered by modern tech, trusted by yacht owners.
-      </p>
-      <div class="btn-group">
-        <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> Login</a>
-        <a href="signup.html" class="btn"><i class="fas fa-user-plus"></i> Sign Up</a>
-        <a href="pay.html" class="btn"><i class="fas fa-credit-card"></i> Subscribe</a>
-        <a href="#" id="downloadBtn" class="btn"><i class="fas fa-download"></i> Download App</a>
+      <p>Complete Yacht Maintenance System — Engine tracking, task history, notifications.</p>
+      <div>
+        <a href="#features" class="btn">Explore Features</a>
+        <a href="pay.html" class="btn">Subscribe</a>
+        <a href="https://wa.me/message/DKKYC7CF3JZNN1" class="btn" style="background:#25D366;">Chat on WhatsApp</a>
       </div>
-      <a href="https://wa.me/message/DKKYC7CF3JZNN1" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
     </div>
-  </div>
-
-  <div class="section">
-    <h2><i class="fas fa-info-circle"></i> About TideCraft</h2>
+  </header>  <section class="section" id="features">
+    <h2>Powerful Features</h2>
+    <div class="features">
+      <div class="feature-box">
+        <i class="fas fa-clock"></i>
+        <h3>Engine Hour Tracking</h3>
+        <p>Log your hours with precision and never miss service intervals again.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-bell"></i>
+        <h3>Maintenance Alerts</h3>
+        <p>Custom reminders help you plan tasks before they become a problem.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-database"></i>
+        <h3>History Logs</h3>
+        <p>Full data logging for audits and long-term tracking of tasks and hours.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-user-lock"></i>
+        <h3>User Access Control</h3>
+        <p>Secure login system tied to your local or cloud-hosted database.</p>
+      </div>
+    </div>
+  </section>  <section class="section">
+    <h2>Incredible Visuals</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1594007652174-84b0ed1072fc?auto=format&fit=crop&w=1000&q=80" alt="Yacht">
+      <img src="https://images.unsplash.com/photo-1532339142462-f30c3c9a4080?auto=format&fit=crop&w=1000&q=80" alt="Ocean">
+      <img src="https://images.unsplash.com/photo-1583430568700-aebdf0bc1d2e?auto=format&fit=crop&w=1000&q=80" alt="Maintenance">
+    </div>
+  </section>  <section class="section">
+    <h2>Testimonials</h2>
+    <div class="features">
+      <div class="testimonial-box">
+        <p><strong>Michael J., Cape Town</strong><br>“TideCraft helps me stay on top of my boat schedule with zero stress.”</p>
+      </div>
+      <div class="testimonial-box">
+        <p><strong>Lisa P., Durban</strong><br>“No more guessing when my next checkup is. Love the reminders!”</p>
+      </div>
+      <div class="testimonial-box">
+        <p><strong>Andre K., PE</strong><br>“I use the app daily and it’s become part of my routine!”</p>
+      </div>
+    </div>
+  </section>  <section class="cta-banner">
+    <h2>Join TideCraft Today</h2>
+    <p>Create an account, subscribe, and unlock the full dashboard instantly.</p>
+    <a href="signup.html" class="btn">Create Account</a>
+    <a href="pay.html" class="btn">Subscribe Now</a>
+  </section>  <section class="section stats">
+    <div class="stat-box">
+      <h3>1000+</h3>
+      <p>Hours Tracked</p>
+    </div>
+    <div class="stat-box">
+      <h3>500+</h3>
+      <p>Maintenance Logs</p>
+    </div>
+    <div class="stat-box">
+      <h3>99.9%</h3>
+      <p>Uptime</p>
+    </div>
+  </section>  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </section>  <footer>
+    <p>Contact: ewaldpret6@gmail.com | +27 82 798 3974 | Based in South Africa</p>
     <p>
-      TideCraft Services is based in South Africa and specializes in intelligent maintenance tracking systems for yacht owners. Whether you're operating a private or chartered vessel, our platform ensures you never miss a critical task. You can access your yacht history, reminders, and reports securely from anywhere.
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="refund.html">Refund</a>
     </p>
-    <div class="contact">
-      <p><i class="fas fa-map-marker-alt"></i> Brakpan North, South Africa</p>
-      <p><i class="fas fa-phone"></i> +27 82 798 3974</p>
-      <p><i class="fas fa-envelope"></i> ewaldpret6@gmail.com</p>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 TideCraft Services —
-    <a href="terms.html">Terms</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="refund.html">Refund</a>
-    <br/><br/>
-    Follow us:
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="https://wa.me/message/DKKYC7CF3JZNN1"><i class="fab fa-whatsapp"></i></a>
+    <p>
+      Follow us:
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://wa.me/message/DKKYC7CF3JZNN1"><i class="fab fa-whatsapp"></i></a>
+    </p>
+    <p>&copy; 2025 TideCraft Services</p>
   </footer>
-
-  <script>
-    const isLoggedIn = false;
-    if (isLoggedIn) {
-      document.getElementById("status").innerText = "Signed in";
-      const download = document.getElementById("downloadBtn");
-      download.style.display = "inline-block";
-      download.href = "http://your-public-ip/download/tidecraft-app.zip"; // Replace with real IP or domain
-    } else {
-      document.getElementById("downloadBtn").style.display = "none";
-    }
-  </script>
-
 </body>
 </html>
