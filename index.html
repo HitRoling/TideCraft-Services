@@ -1,239 +1,260 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TideCraft Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --main-color: #005ce6;
-      --dark: #002b5e;
+      --dark: #003cb3;
       --light-bg: #f5f9fc;
-    }* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      --transition: 0.5s ease;
+    }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--light-bg);
-  color: #222;
-  scroll-behavior: smooth;
-  line-height: 1.6;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-bg);
+      color: #222;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
 
-section {
-  transition: background 1s ease-in-out;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-header.hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url('https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-  min-height: 100vh;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
+    header.hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+      url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      transition: background var(--transition);
+    }
 
-.glass-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 900px;
-  margin: auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
+    .glass-box {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-.btn {
-  background: var(--main-color);
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  margin: 0.5rem;
-  display: inline-block;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
+    .btn {
+      background: var(--main-color);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      margin: 0.5rem;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-.btn:hover {
-  background: var(--dark);
-  transform: scale(1.05);
-}
+    .btn:hover {
+      background: var(--dark);
+      transform: scale(1.05);
+    }
 
-.section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
-}
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
 
-.features, .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
+    .features, .gallery, .testimonials, .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
 
-.feature-box, .testimonial-box {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
+    .feature-box, .testimonial-box, .contact-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      transition: transform var(--transition);
+    }
 
-.feature-box i {
-  font-size: 2rem;
-  color: var(--main-color);
-  margin-bottom: 1rem;
-}
+    .feature-box:hover, .testimonial-box:hover, .contact-box:hover {
+      transform: translateY(-5px);
+    }
 
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-}
+    .feature-box i, .contact-box i {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 1rem;
+    }
 
-.counter {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--main-color);
-}
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+    }
 
-.stat-box {
-  flex: 1 1 200px;
-  padding: 1rem;
-}
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--main-color);
+    }
 
-.stat-box h3 {
-  font-size: 2rem;
-  color: var(--main-color);
-}
+    .chart-container {
+      margin-top: 3rem;
+    }
 
-.pie-chart {
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  border-radius: 50%;
-  background: conic-gradient(#005ce6 75%, #e0e0e0 75%);
-  animation: spinPie 2s ease-out;
-}
+    canvas {
+      max-width: 100%;
+    }
 
-@keyframes spinPie {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    footer {
+      background: #eaf1f9;
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
 
-footer {
-  background: #eaf1f9;
-  padding: 3rem 2rem;
-  text-align: center;
-  font-size: 0.95rem;
-}
+    footer a {
+      color: var(--main-color);
+      margin: 0 1rem;
+    }
 
-footer a {
-  color: var(--main-color);
-  margin: 0 1rem;
-}
-
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
+
   <header class="hero">
     <div class="glass-box">
       <h1><i class="fas fa-ship"></i> TideCraft Services</h1>
-      <p>Full-featured Yacht Maintenance System</p>
+      <p>Professional Yacht Maintenance. Simplified. Reliable.</p>
       <div>
         <a href="#features" class="btn">Explore Features</a>
         <a href="pay.html" class="btn">Subscribe</a>
-        <a href="https://wa.me/message/DKKYC7CF3JZNN1" class="btn" style="background:#25D366;">WhatsApp Us</a>
       </div>
     </div>
-  </header>  <section class="section" id="features">
-    <h2>Features</h2>
+  </header>
+
+  <section id="features">
+    <h2>Powerful Features</h2>
     <div class="features">
       <div class="feature-box">
         <i class="fas fa-tools"></i>
-        <h3>Maintenance Scheduling</h3>
-        <p>Get automatic reminders and service tracking.</p>
+        <h3>Maintenance Logs</h3>
+        <p>Automatic tracking of all your service needs.</p>
       </div>
       <div class="feature-box">
-        <i class="fas fa-clock"></i>
-        <h3>Engine Hours</h3>
-        <p>Track usage hours precisely with historical charts.</p>
+        <i class="fas fa-history"></i>
+        <h3>Engine History</h3>
+        <p>Track engine hours, schedule reminders, and review past logs.</p>
       </div>
       <div class="feature-box">
         <i class="fas fa-shield-alt"></i>
-        <h3>Secure Logins</h3>
-        <p>User authentication powered by local data.</p>
+        <h3>Security</h3>
+        <p>Local secure login with full user control.</p>
       </div>
     </div>
-  </section>  <section class="section" style="background:#fff;">
-    <h2>Visual Insights</h2>
+  </section>
+
+  <section id="gallery" style="background:#fff;">
+    <h2>In Action</h2>
     <div class="gallery">
-      <img src="https://images.pexels.com/photos/1739464/pexels-photo-1739464.jpeg" alt="yacht1">
-      <img src="https://images.pexels.com/photos/296236/pexels-photo-296236.jpeg" alt="yacht2">
-      <img src="https://images.pexels.com/photos/3583193/pexels-photo-3583193.jpeg" alt="control dashboard">
+      <img src="https://images.pexels.com/photos/1739464/pexels-photo-1739464.jpeg" alt="Yacht View">
+      <img src="https://images.pexels.com/photos/210879/pexels-photo-210879.jpeg" alt="Dashboard">
+      <img src="https://images.pexels.com/photos/265947/pexels-photo-265947.jpeg" alt="Marine Control">
     </div>
-  </section>  <section class="section" id="statistics">
-    <h2>Our Impact</h2>
-    <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
-      <div class="stat-box">
-        <div class="counter" data-target="1200">0</div>
-        <p>Hours Tracked</p>
-      </div>
-      <div class="stat-box">
-        <div class="counter" data-target="350">0</div>
-        <p>Service Logs</p>
-      </div>
-      <div class="stat-box">
-        <div class="counter" data-target="99">0</div>
-        <p>% Uptime</p>
-      </div>
-      <div class="stat-box">
-        <div class="pie-chart"></div>
-        <p>Customer Satisfaction</p>
-      </div>
-    </div>
-  </section>  <section class="section">
-    <h2>What Our Users Say</h2>
+  </section>
+
+  <section id="stats">
+    <h2>Live Stats</h2>
     <div class="features">
-      <div class="testimonial-box">
-        <p><strong>John, CT</strong><br>“Love how smooth and reliable it is.”</p>
+      <div>
+        <div class="counter" data-target="1200">0</div>
+        <p>Hours Logged</p>
       </div>
-      <div class="testimonial-box">
-        <p><strong>Lisa, DBN</strong><br>“No more paper logs! This app is everything.”</p>
+      <div>
+        <div class="counter" data-target="300">0</div>
+        <p>Tasks Completed</p>
+      </div>
+      <div>
+        <div class="counter" data-target="97">0</div>
+        <p>Customer Satisfaction (%)</p>
       </div>
     </div>
-  </section>  <footer>
-    <p>Contact: <a href="mailto:ewaldpret6@gmail.com">ewaldpret6@gmail.com</a> | +27 82 798 3974 | South Africa</p>
-    <p>
-      <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund.html">Refund</a>
-    </p>
-    <p>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="https://wa.me/message/DKKYC7CF3JZNN1"><i class="fab fa-whatsapp"></i></a>
-    </p>
-    <p>&copy; 2025 TideCraft Services</p>
-  </footer>  <script>
+
+    <div class="chart-container">
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+  </section>
+
+  <section id="testimonials" style="background:#f0f5fa;">
+    <h2>User Feedback</h2>
+    <div class="testimonials">
+      <div class="testimonial-box">
+        <p>“TideCraft makes my yacht life 10x easier!” – Johan (CT)</p>
+      </div>
+      <div class="testimonial-box">
+        <p>“Everything works! Love the reminder system.” – Lerato (PE)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-methods">
+      <div class="contact-box">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:ewaldpret6@gmail.com">ewaldpret6@gmail.com</a></p>
+      </div>
+      <div class="contact-box">
+        <i class="fas fa-phone"></i>
+        <h3>Phone</h3>
+        <p>+27 82 798 3974</p>
+      </div>
+      <div class="contact-box">
+        <i class="fab fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/message/DKKYC7CF3JZNN1">Message us on WhatsApp</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 TideCraft Services | Based in South Africa</p>
+    <p><a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="refund.html">Refund</a></p>
+  </footer>
+
+  <script>
     const counters = document.querySelectorAll('.counter');
     const speed = 100;
-    
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -242,7 +263,6 @@ footer a {
           const updateCount = () => {
             const count = +counter.innerText;
             const increment = target / speed;
-
             if (count < target) {
               counter.innerText = Math.ceil(count + increment);
               setTimeout(updateCount, 20);
@@ -254,10 +274,46 @@ footer a {
           observer.unobserve(counter);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.6 });
 
-    counters.forEach(counter => {
-      observer.observe(counter);
+    counters.forEach(counter => observer.observe(counter));
+
+    // Line Chart
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Engine Hours',
+          data: [120, 150, 180, 200, 230, 300],
+          backgroundColor: 'rgba(0, 92, 230, 0.2)',
+          borderColor: 'rgba(0, 92, 230, 1)',
+          borderWidth: 2,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     });
-  </script></body>
+
+    // Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Oil', 'Filters', 'Coolant', 'Belts'],
+        datasets: [{
+          label: 'Replacements This Year',
+          data: [15, 9, 6, 3],
+          backgroundColor: 'rgba(0, 92, 230, 0.7)'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
+</body>
 </html>
